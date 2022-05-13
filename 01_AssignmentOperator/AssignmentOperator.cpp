@@ -25,7 +25,7 @@ public:
     CMyString(const CMyString& str);
     ~CMyString(void);
 
-    CMyString& operator = (const CMyString& str);
+    CMyString& operator = (const CMyString& str);//单目运算符重载A=B+2相当于：A=B.operate +(2)，对B进行了一次重载
 
     void Print();
       
@@ -87,7 +87,7 @@ void Test1()
     char* text = "Hello world";
 
     CMyString str1(text);
-    CMyString str2;
+    CMyString str2;//
     str2 = str1;
 
     printf("The expected result is: %s.\n", text);
@@ -123,7 +123,7 @@ void Test3()
 
     CMyString str1(text);
     CMyString str2, str3;
-    str3 = str2 = str1;
+    str3 = str2 = str1;//str3.operate =(str2 = str1) //str3.operate =(str2.operate =(str1)) ，然后从右向左进行
 
     printf("The expected result is: %s.\n", text);
 
